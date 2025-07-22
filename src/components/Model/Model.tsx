@@ -1,6 +1,7 @@
 import React from 'react';
 import google from '../../assets/google.svg'
 import Image from 'next/image';
+
 interface ModalProps {
     type: 'login' | 'signup';
     onClose: () => void;

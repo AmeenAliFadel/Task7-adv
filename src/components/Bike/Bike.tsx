@@ -21,7 +21,6 @@ export default function Bike() {
     return (
         <div className='w-full bg-[#ffb47b] mt-[220px]'>
             <div className='flex flex-col-reverse lg:flex-row justify-between items-center w-full px-6 lg:px-[13.02%] gap-10'>
-
                 <div className='w-full lg:w-[734px] my-[40px] lg:my-[60px]'>
                     <h3 className='text-2xl sm:text-3xl lg:text-[32px] text-center text-black font-extrabold mb-9'>
                         Book Now Bike

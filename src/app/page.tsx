@@ -23,9 +23,6 @@ export default function Home() {
       <Bike />
       <MostPopular />
       <HappyCustomers />
-
-
-      <h1>hello world</h1>
     </>
   );
 }

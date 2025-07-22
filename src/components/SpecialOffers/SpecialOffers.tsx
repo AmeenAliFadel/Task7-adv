@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import img from '../../assets/user2.webp'
+
 export default function SpecialOffers() {
     return (
         <>

@@ -1,7 +1,10 @@
+
 import type { Metadata } from "next";
 import { Open_Sans, Pacifico } from 'next/font/google';
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
+import AOSProvider from "@/components/AOSProvider/AOSProvider";
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -11,8 +14,8 @@ const openSans = Open_Sans({
 
 const pacifico = Pacifico({
   subsets: ['latin'],
-  weight: '400', 
-  variable: '--font-pacifico', 
+  weight: '400',
+  variable: '--font-pacifico',
 });
 
 export const metadata: Metadata = {
@@ -25,13 +28,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body
         className={`${openSans.variable} ${pacifico.variable} antialiased`}
       >
         <Navbar />
-        {children}
+        <AOSProvider>
+          {children}
+        </AOSProvider>
+        <Footer />
       </body>
     </html>
   );

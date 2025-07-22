@@ -34,6 +34,7 @@ export default function BestCompany({ isPrimary = true }: BestCompanyProps) {
                 <div className={`w-full lg:w-1/2 flex justify-center  `}>
                     <div className={`  ${isPrimary ? "" : "w-[84.56%] border border-[#EFEFEF] p-6 rounded-xl"}`}>
                         <Image
+                            data-aos="flip-right"
                             src={image}
                             alt="Best company"
                             className={` rounded-xl object-cover ${isPrimary ? "h-auto " : " w-full h-[516px]"}`}

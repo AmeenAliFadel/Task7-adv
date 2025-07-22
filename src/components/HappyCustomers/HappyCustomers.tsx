@@ -8,7 +8,7 @@ import 'swiper/css/navigation'
 
 import icon from '../../assets/dots.svg'
 import img from '../../assets/happyUser.png'
-import Image from 'next/image'
+import TestimonialCard from './TestimonialCard'
 
 const LeftArrow = () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -97,17 +97,12 @@ export default function HappyCustomers() {
                     >
                         {testimonials.map((item, index) => (
                             <SwiperSlide key={index}>
-                                <div className="p-6 rounded-3xl border border-gray-200 shadow bg-white h-full">
-                                    <div className="flex flex-col justify-center items-center mb-4">
-                                        <Image src={img} alt="user" width={80} height={80} className="rounded-full" />
-                                        <h4 className="mt-2 text-lg font-bold">{item.name}</h4>
-                                    </div>
-                                    <Image src={icon} alt="icon" className="mb-2" />
-                                    <p className="text-lg text-black font-normal">{item.content}</p>
-                                    <div className="flex justify-end mt-4">
-                                        <Image src={icon} alt="icon" />
-                                    </div>
-                                </div>
+                                <TestimonialCard
+                                    name={item.name}
+                                    content={item.content}
+                                    img={img}
+                                    icon={icon}
+                                />
                             </SwiperSlide>
                         ))}
                     </Swiper>

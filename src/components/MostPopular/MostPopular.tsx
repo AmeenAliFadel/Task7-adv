@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React from 'react'
 
 import img1 from '../../assets/section3/image1.webp'
@@ -25,6 +24,7 @@ import icon4_1 from '../../assets/section3/icon4-1.svg'
 import icon4_2 from '../../assets/section3/icon4-2.svg'
 import icon4_3 from '../../assets/section3/icon4-3.svg'
 import icon4_4 from '../../assets/section3/icon4-4.svg'
+import MostPopularCard from './MostPopularCard'
 
 export default function MostPopular() {
     const data = [
@@ -79,31 +79,15 @@ export default function MostPopular() {
             <h2 className='text-[32px] text-black font-extrabold'>The Most Popular Packages</h2>
             <div className='mt-[60px] grid gap-8 grid-cols-1 md:grid-cols-2 2xl:grid-cols-4'>
                 {data.map((card, index) => (
-                    <div key={index} className='w-full'>
-                        <Image
-                            src={card.img}
-                            alt=''
-                            className='object-cover w-full h-[340px] rounded-t-3xl mb-[25px]'
-                        />
-                        <h3 className='mb-4 text-xl text-black font-extrabold'>{card.title}</h3>
-                        <p className='mb-4 text-xl text-black font-normal'>
-                            € <span className='text-5xl text-[#FA8B02] font-bold'>{card.price}</span>/day
-                        </p>
-                        <ul className='mb-4 flex flex-col gap-4'>
-                            {card.icons.map((item, idx) => (
-                                <li key={idx} className='flex gap-2'>
-                                    <Image src={item.icon} alt='icon' />
-                                    <span className='text-lg text-black font-normal'>{item.text}</span>
-                                </li>
-                            ))}
-                        </ul>
-                        <button className='w-full text-xl text-[#FA8B02] font-semibold border border-[#FA8B02] py-3 px-6 rounded-[50px]'>
-                            Book Now
-                        </button>
-                    </div>
+                    <MostPopularCard
+                        key={index}
+                        img={card.img}
+                        title={card.title}
+                        price={card.price}
+                        icons={card.icons}
+                    />
                 ))}
             </div>
         </div>
-
     )
 }

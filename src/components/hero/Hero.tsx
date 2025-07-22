@@ -15,6 +15,11 @@ import svg7 from '../../assets/hero/car.svg';
 import svg8 from '../../assets/hero/search.svg';
 import svg9 from '../../assets/hero/downArrow.svg';
 
+import { Pacifico } from 'next/font/google';
+const pacifico = Pacifico({
+    subsets: ['latin'],
+    weight: '400',
+});
 const searchFields = [
     {
         id: 1,
@@ -64,8 +69,8 @@ export default function Hero({ homeHero }: HeroProps) {
                 <>
                     <Image src={hero1} alt='hero' className='w-full h-[94.44%] object-cover' />
 
-                    <div className='mb-[60px] absolute top-[350px] lg:top-[250px] 2xl:top-[300px] left-[50%] transform -translate-x-[50%] -translate-y-[50%] text-center text-white z-20'>
-                        <h1 className='text-5xl xl:text-7xl  font-normal mb-4' style={{ fontFamily: 'var(--font-pacifico)' }}>
+                    <div data-aos="fade-up" className='mb-[60px] absolute top-[50%]  2xl:top-[300px] left-[50%] transform -translate-x-[50%] -translate-y-[50%] text-center text-white z-20'>
+                        <h1 className={`${pacifico.className} text-5xl xl:text-7xl font-normal mb-4`} >
                             Enjoy in the best way!
                         </h1>
                         <h3 className='text-sm sm:text-2xl font-bold'>
@@ -88,8 +93,9 @@ export default function Hero({ homeHero }: HeroProps) {
                     )}
 
                     <div
+                        data-aos="fade-up"
                         className={`
-            lg:absolute 2xl:top-[50%] lg:top-[73%] lg:left-[50%] lg:transform lg:-translate-x-[50%] lg:-translate-y-[50%]
+            lg:absolute 2xl:top-[50%] lg:top-[60%] lg:left-[50%] lg:transform lg:-translate-x-[50%] lg:-translate-y-[50%]
             w-[90%] lg:w-[1383px] max-w-[95%] lg:max-w-[72.03%]
             flex flex-col justify-start rounded-xl bg-[#FFFFFF33]
             transition-all duration-500 ease-in-out
@@ -110,31 +116,56 @@ export default function Hero({ homeHero }: HeroProps) {
                             </div>
                         </div>
 
-                        <div className='p-3 rounded-b-xl rounded-tr-xl flex justify-start md:justify-around 2xl:justify-between items-center flex-wrap bg-white text-black'>
+                        <div
+                            className="
+                                        p-3 2xl:p-4
+                                        rounded-b-xl rounded-tr-xl
+                                        bg-white text-black
+                                        grid gap-3
+                                        grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6
+                                        items-center
+                                        "
+                        >
                             {searchFields.map((field) => (
-                                <div key={field.id} className='p-2 2xl:p-4 lg:w-auto w-full min-w-[150px] 2xl:min-w-[197px]'>
-                                    <div className='flex gap-1'>
-                                        <Image src={field.icon} alt='svg' />
-                                        <h4 className='text-sm md:text-lg'>{field.title}</h4>
+                                <div
+                                    key={field.id}
+                                    className="
+                                                p-2 2xl:p-4
+                                                flex flex-col gap-1
+                                                min-w-[150px] 2xl:min-w-[197px]
+                                                "
+                                >
+                                    <div className="flex items-center gap-1">
+                                        <Image src={field.icon} alt="svg" />
+                                        <h4 className="text-sm md:text-lg">{field.title}</h4>
                                     </div>
-                                    <span className='text-[#b0b0b0] text-sm md:text-lg flex justify-between gap-5 ms-6'>
+                                    <span className="text-[#b0b0b0] text-sm md:text-lg flex justify-between items-center gap-3 ms-6">
                                         {field.placeholder}
-                                        <Image src={svg9} alt='arrow' />
+                                        <Image src={svg9} alt="arrow" />
                                     </span>
                                 </div>
                             ))}
 
-                            <div className='rounded-xl bg-[#FA8B02] p-3 2xl:p-6'>
-                                <Image src={svg8} alt='search' />
+                            <div className="flex justify-center">
+                                <button
+                                    className="
+                                            rounded-xl bg-[#FA8B02]
+                                            p-3 2xl:p-6
+                                            flex justify-center items-center
+                                            "
+                                >
+                                    <Image src={svg8} alt="search" />
+                                </button>
                             </div>
                         </div>
+
                     </div>
                 </>
             }
             {!homeHero &&
                 <>
                     <Image src={hero2} alt='hero' className='w-full h-[94.44%] object-cover' />
-                    <div className='  absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] text-center  '>
+                    <div data-aos="fade-up" className='  absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] text-center  '>
                         <h1 className='text-5xl xl:text-6xl text-white font-normal mb-6' style={{ fontFamily: 'var(--font-pacifico)' }}>Our team cares about your full relax</h1>
                         <p className=' hidden lg:block text-xl  text-white font-bold mb-6'>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.</p>
                         <button className=' bg-inherit text-xl text-white font-semibold border-[1.5px] border-white px-6 py-3.5 rounded-[50px] '>View our Tour Packages</button>

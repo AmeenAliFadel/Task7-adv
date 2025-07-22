@@ -2,7 +2,6 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
-import Image from 'next/image'
 import React, { useRef, useEffect, useState } from 'react'
 
 import icon1 from '../../assets/section1/icon1.svg'
@@ -12,6 +11,7 @@ import image2 from '../../assets/section1/explore2.webp'
 import image3 from '../../assets/section1/explore3.webp'
 import image4 from '../../assets/section1/explore4.webp'
 import image5 from '../../assets/section1/explore5.webp'
+import ExploreCard from './ExploreCard'
 
 const cards = [
     { image: image1, title: 'Lucca Bike Tour', price: '34 €', day: 'EVERY DAY', date: '3-10 PP', desc: 'A tour of the city and its surroundings led by a professional guide ...' },
@@ -87,30 +87,23 @@ export default function Explore() {
                     >
                         {cards.map((card, index) => (
                             <SwiperSlide key={index}>
-                                <div className="w-full p-4 bg-white  rounded-xl">
-                                    <Image src={card.image} alt={`img-${index}`} className="mb-4 w-full h-[404px] rounded-3xl object-cover" />
-                                    <h4 className="text-2xl font-bold text-black mb-3">{card.title}</h4>
-                                    <p className="text-lg font-semibold text-black mb-2">
-                                        from <span className="text-[#FA8B02] text-2xl font-extrabold">{card.price}</span>
-                                    </p>
-                                    <div className="flex justify-between mb-3">
-                                        <div className="flex gap-1.5 items-center">
-                                            <Image src={icon1} alt="icon" />
-                                            <span className="text-[#FA8B02] text-base font-semibold">{card.day}</span>
-                                        </div>
-                                        <div className="flex gap-1.5 items-center">
-                                            <Image src={icon2} alt="icon" />
-                                            <span className="text-[#FA8B02] text-base font-semibold">{card.date}</span>
-                                        </div>
-                                    </div>
-                                    <p className="text-lg text-black">{card.desc}</p>
-                                </div>
+                                <ExploreCard
+                                    image={card.image}
+                                    title={card.title}
+                                    price={card.price}
+                                    day={card.day}
+                                    date={card.date}
+                                    desc={card.desc}
+                                    icon1={icon1}
+                                    icon2={icon2}
+                                    index={index}
+                                />
                             </SwiperSlide>
                         ))}
+
                     </Swiper>
                 )}
             </div>
-
         </>
     )
 }
